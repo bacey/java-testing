@@ -88,3 +88,6 @@ fabric.properties
 *~
 .*~
 tmp/
+
+.idea/
+*.iml
