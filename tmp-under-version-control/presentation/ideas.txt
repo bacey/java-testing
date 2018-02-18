@@ -1,0 +1,18 @@
+
+Testing:
+
+To automate repetitive, boring steps.
+Youtube video.
+
+Catch errors when someone changes something.
+CSS, color of button.
+
+Drive the design: checklist.
+
+Concepts: testing pyramid, unit tests, integration tests, UI tests, smoke tests, Test Driven Development, Behaviour Driven Development, Clean Code, mocking, Constructor Dependency Injection, Selenium, JUnit, Mockito.
+
+Books:
+Kent Beck: Test-Driven Development by Example
+Steve Freeman, Nat Pryce: Growing Object-Oriented Software, Guided by Tests
+
+
