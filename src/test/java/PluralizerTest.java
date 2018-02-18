@@ -1,7 +1,6 @@
 import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
 
-import java.util.Collections;
 import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -27,9 +26,11 @@ public class PluralizerTest {
     }
 
     private void testPluralizerWith(final String singularWord, final String expectedPluralWord) {
-        final Map<String, String> emptyDictionaryOfIrregularPlurals = Collections.emptyMap();
+        final Pluralizer pluralizer = new Pluralizer();
 
-        testPluralizerWith(singularWord, expectedPluralWord, emptyDictionaryOfIrregularPlurals);
+        final String actualPluralWord = pluralizer.pluralize(singularWord);
+
+        assertThat(actualPluralWord).isEqualTo(expectedPluralWord);
     }
 
     private void testPluralizerWith(final String singularWord, final String expectedPluralWord, final Map<String, String> dictionaryOfIrregularPlurals) {

@@ -1,8 +1,13 @@
+import java.util.Collections;
 import java.util.Map;
 
 public class Pluralizer {
 
     private final Map<String, String> dictionaryOfIrregularPlurals;
+
+    public Pluralizer() {
+        this.dictionaryOfIrregularPlurals = Collections.emptyMap();
+    }
 
     public Pluralizer(final Map<String, String> dictionaryOfIrregularPlurals) {
         this.dictionaryOfIrregularPlurals = dictionaryOfIrregularPlurals;
