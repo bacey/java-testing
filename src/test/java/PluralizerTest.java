@@ -5,40 +5,45 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-
 public class PluralizerTest {
+
+    private final Map<String, String> dictionaryOfIrregularPlurals = ImmutableMap.of(
+            "fish", "fish",
+            "sheep", "sheep");
+
+    private final Pluralizer pluralizer = new Pluralizer(dictionaryOfIrregularPlurals);
+
 
     @Test
     public void pluralizerAppendsAnSToTheEndOfTheSingularWord() {
-        testPluralizerWith("book", "books");
+        final String actualPluralizedWord = pluralizer.pluralize("book");
+
+        assertThat(actualPluralizedWord).isEqualTo("books");
+    }
+
+    @Test
+    public void pluralizerAppendsAnSToTheEndOfTheSingularWord2() {
+        final String actualPluralizedWord = pluralizer.pluralize("chair");
+
+        assertThat(actualPluralizedWord).isEqualTo("chairs");
     }
 
     @Test
     public void pluralizerDoesNotChangeCase() {
-        testPluralizerWith("Book", "Books");
+        final String actualPluralizedWord = pluralizer.pluralize("Book");
+
+        assertThat(actualPluralizedWord).isEqualTo("Books");
     }
 
     @Test
     public void shouldPluralizeAnIrregularWord() {
-        final Map<String, String> dictionaryOfIrregularPlurals = ImmutableMap.of("fish", "fish");
-
-        testPluralizerWith("fish", "fish", dictionaryOfIrregularPlurals);
+        assertThat(pluralizer.pluralize("fish")).isEqualTo("fish");
     }
 
-    private void testPluralizerWith(final String singularWord, final String expectedPluralWord) {
-        final Pluralizer pluralizer = new Pluralizer();
-
-        final String actualPluralWord = pluralizer.pluralize(singularWord);
-
-        assertThat(actualPluralWord).isEqualTo(expectedPluralWord);
-    }
-
-    private void testPluralizerWith(final String singularWord, final String expectedPluralWord, final Map<String, String> dictionaryOfIrregularPlurals) {
-        final Pluralizer pluralizer = new Pluralizer(dictionaryOfIrregularPlurals);
-
-        final String actualPluralWord = pluralizer.pluralize(singularWord);
-
-        assertThat(actualPluralWord).isEqualTo(expectedPluralWord);
+    @Test
+    public void shouldPluralizeAnIrregularWord2() {
+        assertThat(pluralizer.pluralize("fish")).isEqualTo("fish");
+        assertThat(pluralizer.pluralize("sheep")).isEqualTo("sheep");
     }
 
 }

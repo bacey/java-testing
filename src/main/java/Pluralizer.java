@@ -1,3 +1,4 @@
+
 import java.util.Collections;
 import java.util.Map;
 
@@ -6,6 +7,7 @@ public class Pluralizer {
     private final Map<String, String> dictionaryOfIrregularPlurals;
 
     public Pluralizer() {
+        // this(Collections.emptyMap());
         this.dictionaryOfIrregularPlurals = Collections.emptyMap();
     }
 
@@ -14,9 +16,9 @@ public class Pluralizer {
     }
 
     public String pluralize(final String singularWord) {
-        final boolean singularWordHasAnIrregularPlural = dictionaryOfIrregularPlurals.containsKey(singularWord);
+        final boolean singularWordHasIrregularPlural = dictionaryOfIrregularPlurals.containsKey(singularWord);
 
-        if (singularWordHasAnIrregularPlural) {
+        if (singularWordHasIrregularPlural) {
             final String irregularPlural = dictionaryOfIrregularPlurals.get(singularWord);
             return irregularPlural;
         } else {
@@ -24,5 +26,4 @@ public class Pluralizer {
             return regularPlural;
         }
     }
-
 }
