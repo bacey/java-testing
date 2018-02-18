@@ -15,33 +15,33 @@ public class PluralizerTest {
 
 
     @Test
-    public void pluralizerAppendsAnSToTheEndOfTheSingularWord() {
-        final String actualPluralizedWord = pluralizer.pluralize("book");
+    public void pluralizerAppendsAnSToTheEndOfTheSingularNoun() {
+        final String actualPluralizedNoun = pluralizer.pluralize("book");
 
-        assertThat(actualPluralizedWord).isEqualTo("books");
+        assertThat(actualPluralizedNoun).isEqualTo("books");
     }
 
     @Test
-    public void pluralizerAppendsAnSToTheEndOfTheSingularWord2() {
-        final String actualPluralizedWord = pluralizer.pluralize("chair");
+    public void pluralizerAppendsAnSToTheEndOfTheSingularNoun2() {
+        final String actualPluralizedNoun = pluralizer.pluralize("chair");
 
-        assertThat(actualPluralizedWord).isEqualTo("chairs");
+        assertThat(actualPluralizedNoun).isEqualTo("chairs");
     }
 
     @Test
     public void pluralizerDoesNotChangeCase() {
-        final String actualPluralizedWord = pluralizer.pluralize("Book");
+        final String actualPluralizedNoun = pluralizer.pluralize("Book");
 
-        assertThat(actualPluralizedWord).isEqualTo("Books");
+        assertThat(actualPluralizedNoun).isEqualTo("Books");
     }
 
     @Test
-    public void shouldPluralizeAnIrregularWord() {
+    public void shouldPluralizeAnIrregularNoun() {
         assertThat(pluralizer.pluralize("fish")).isEqualTo("fish");
     }
 
     @Test
-    public void shouldPluralizeAnIrregularWord2() {
+    public void shouldPluralizeAnIrregularNoun2() {
         assertThat(pluralizer.pluralize("fish")).isEqualTo("fish");
         assertThat(pluralizer.pluralize("sheep")).isEqualTo("sheep");
     }
