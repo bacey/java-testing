@@ -21,9 +21,9 @@ public class PluralizerTest {
 
     @Test
     public void shouldPluralizeAnIrregularWord() {
-        final Map<String, String> irregularPlurals = ImmutableMap.of("fish", "fish");
+        final Map<String, String> dictionaryOfIrregularPlurals = ImmutableMap.of("fish", "fish");
 
-        testPluralizerWith("fish", "fish", irregularPlurals);
+        testPluralizerWith("fish", "fish", dictionaryOfIrregularPlurals);
     }
 
     private void testPluralizerWith(final String singularWord, final String expectedPluralWord) {
@@ -32,8 +32,8 @@ public class PluralizerTest {
         testPluralizerWith(singularWord, expectedPluralWord, emptyDictionaryOfIrregularPlurals);
     }
 
-    private void testPluralizerWith(final String singularWord, final String expectedPluralWord, final Map<String, String> irregularPlurals) {
-        final Pluralizer pluralizer = new Pluralizer(irregularPlurals);
+    private void testPluralizerWith(final String singularWord, final String expectedPluralWord, final Map<String, String> dictionaryOfIrregularPlurals) {
+        final Pluralizer pluralizer = new Pluralizer(dictionaryOfIrregularPlurals);
 
         final String actualPluralWord = pluralizer.pluralize(singularWord);
 

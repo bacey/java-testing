@@ -2,17 +2,17 @@ import java.util.Map;
 
 public class Pluralizer {
 
-    private final Map<String, String> irregularPlurals;
+    private final Map<String, String> dictionaryOfIrregularPlurals;
 
-    public Pluralizer(final Map<String, String> irregularPlurals) {
-        this.irregularPlurals = irregularPlurals;
+    public Pluralizer(final Map<String, String> dictionaryOfIrregularPlurals) {
+        this.dictionaryOfIrregularPlurals = dictionaryOfIrregularPlurals;
     }
 
     public String pluralize(final String singularWord) {
-        final boolean singularWordHasAnIrregularPlural = irregularPlurals.containsKey(singularWord);
+        final boolean singularWordHasAnIrregularPlural = dictionaryOfIrregularPlurals.containsKey(singularWord);
 
         if (singularWordHasAnIrregularPlural) {
-            final String irregularPlural = irregularPlurals.get(singularWord);
+            final String irregularPlural = dictionaryOfIrregularPlurals.get(singularWord);
             return irregularPlural;
         } else {
             final String regularPlural = singularWord + "s";
